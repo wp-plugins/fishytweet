@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Fishy Tweet
-Plugin URI: http://fiskeben.dk/
+Plugin URI: http://fiskeben.dk/fishytweet
 Description: Adds "Tweet this" to posts.
-Version: 0.1
-Author: Ricco Førgaard
+Version: 1.0
+Author: Ricco Førgaard <ricco@fiskeben.dk>
 Author URI: http://fiskeben.dk
 */
 if (!function_exists('fishy_twitter_admin_setup')) {
