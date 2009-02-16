@@ -3,7 +3,7 @@ Contributors: fiskeben
 Tags: Twitter, microblogging
 Requires at least: 2.3
 Tested up to: 2.7.1
-Stable tag: 1.5
+Stable tag: 1.5.1
 
 Adds a "Tweet this" link to posts, shortens URLs with tr.im or TinyURL and sends the user to Twitter.com.
 
