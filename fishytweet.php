@@ -3,8 +3,8 @@
 Plugin Name: Fishy Tweet
 Plugin URI: http://fiskeben.dk/fishytweet
 Description: Adds "Tweet this" to posts.
-Version: 1.5.1
-Author: Ricco Førgaard <ricco@fiskeben.dk>
+Version: 1.6
+Author: Ricco Førgaard
 Author URI: http://fiskeben.dk
 */
 if (!function_exists('fishy_twitter_admin_setup')) {
@@ -33,7 +33,8 @@ class FishyTweet {
 	var $tags = array(null, 'p', 'div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6');
 	var $engines = array(
 		'TinyURL' => 'http://tinyurl.com/api-create.php?url=',
-		'tr.im' => 'http://tr.im/api/trim_simple?url='
+		'tr.im' => 'http://tr.im/api/trim_simple?url=',
+		'is.gd' => 'http://is.gd/api.php?longurl='
 		);
 		
 	function init() {
