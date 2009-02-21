@@ -12,7 +12,7 @@ if (strlen($url)) {
 	if ($options) {
 		$options = unserialize($options);
 		$tinyurl = file_get_contents($options['url_engine'] . $url);
-		if (is_array($http_response_header, $options, $url)) {
+		if (is_array($http_response_header)) {
 			if (substr($http_response_header[0], '200') === false) {
 				fishytweet_fail($http_response_header, $options['url_engine'], $url);
 			}
