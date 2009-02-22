@@ -3,7 +3,7 @@
 Plugin Name: Fishy Tweet
 Plugin URI: http://fiskeben.dk/fishytweet
 Description: Adds "Tweet this" to posts.
-Version: 1.6.1
+Version: 1.6.2
 Author: Ricco Førgaard
 Author URI: http://fiskeben.dk
 */
