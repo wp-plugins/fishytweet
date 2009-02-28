@@ -3,6 +3,7 @@
 Tinyurl-ifies a URL and redirects to Twitter.com.
 */
 if (strpos($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) === false) {
+	header("HTTP/1.1 403 Forbidden");
 	die("Please only call this script from the same domain (" . $_SERVER['HTTP_REFERER'] . ", " . $_SERVER['HTTP_HOST'] . ")");
 }
 $url = $_GET['url'];
@@ -11,7 +12,7 @@ if (strlen($url)) {
 	$options = $wpdb->get_var("select option_value from $wpdb->options where option_name = 'fishytweetoptions'");
 	if ($options) {
 		$options = unserialize($options);
-		$tinyurl = file_get_contents($options['url_engine'] . $url);
+		$tinyurl = (ini_get('allow_url_fopen') == 1) ? file_get_contents($options['url_engine'] . $url) : $url;
 		if (is_array($http_response_header)) {
 			if (strpos($http_response_header[0], '200') === false) {
 				fishytweet_fail($http_response_header, $options['url_engine'], $url);

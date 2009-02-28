@@ -3,7 +3,7 @@
 Plugin Name: Fishy Tweet
 Plugin URI: http://fiskeben.dk/fishytweet
 Description: Adds "Tweet this" to posts.
-Version: 1.6.3
+Version: 1.7
 Author: Ricco Førgaard
 Author URI: http://fiskeben.dk
 */
@@ -68,6 +68,18 @@ class FishyTweet {
 		
 		?>
 		<div class="wrap">
+			<?php
+			if (ini_get("allow_url_fopen") != 1) {
+				?>
+				<div class="error">
+					<h3>Warning!</h3>
+					<p>Your server is not configured to allow PHP access remote files. This is necessary for this plugin to shorten URLs.</p>
+					<p>Please contact your server administrator to enable 'allow_url_fopen' in the PHP configuration.</p>
+					<p>URLs will not be shortened by this plugin.</p>
+				</div>
+				<?php
+			}
+			?>
 			<form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 			<h2><?php _e("FishyTweet Options", "FishyTweet"); ?></h2>
 			<h3><?php _e("Anchor Text", "FishyTweet"); ?></h3>
@@ -116,6 +128,8 @@ class FishyTweet {
 	}
 	
 	function get_tweet_code($text = '') {
+		if (is_feed()) return $text;
+		
 		$this->get_admin_options();
 		global $post;
 		$out_url = get_bloginfo("url");
